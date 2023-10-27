@@ -84,7 +84,7 @@ const Register = () => {
             <div>
                 <img src={img} alt="" />
             </div>
-            <div className="border border-black w-8/12 md:w-4/12 text-center p-10 rounded-lg">
+            <div className="border border-black w-full md:w-4/12 text-center px-10 py-5 rounded-lg">
                 <h2 className="text-3xl font-bold mb-2">Sign Up!</h2>
                 <form onSubmit={handleCreateUser}>
                     <div className="relative">
@@ -124,12 +124,12 @@ const Register = () => {
 
                 </form>
 
-                <p className="mt-5">Or Sign up using</p>
+                <p className="mt-2">Or Sign up using</p>
                 <div className="flex gap-3 justify-center my-3">
                     <img onClick={handleGoogleLogin} className="w-8 cursor-pointer" src="/google.jpg" alt="" />
                     <img onClick={handleGithubLogin} className="w-8 cursor-pointer" src="/GitHub-Mark.png" alt="" />
                 </div>
-                <div className="flex gap-3 justify-center mt-8">
+                <div className="flex gap-3 justify-center mt-5">
                     <p>Already have an account?</p>
                     <Link className="font-semibold text-red-700" to='/login'>Login now</Link>
                 </div>

@@ -60,7 +60,7 @@ const Login = () => {
                 <img src={img} alt="" />
             </div>
 
-            <div className=" w-8/12 md:w-4/12 text-center p-10 rounded-lg">
+            <div className="w-full md:w-4/12 text-center px-10 py-5 rounded-lg border border-black">
                 <h2 className="text-3xl font-bold">Login</h2>
                 <form onSubmit={handleLogin}>
                     <div className="relative">
@@ -92,12 +92,12 @@ const Login = () => {
 
                 </form>
 
-                <p className="mt-5">Or Sign up using</p>
+                <p className="mt-2">Or Sign up using</p>
                 <div className="flex gap-3 justify-center my-3">
                     <img onClick={handleGoogleLogin} className="w-8 cursor-pointer" src="/google.jpg" alt="" />
                     <img onClick={handleGithubLogin} className="w-8 cursor-pointer" src="/GitHub-Mark.png" alt="" />
                 </div>
-                <div className="flex gap-3 justify-center mt-8">
+                <div className="flex gap-3 justify-center mt-5">
                     <p>New to this site?</p>
                     <Link className="font-semibold text-red-700" to='/register'>Sign Up</Link>
                 </div>
