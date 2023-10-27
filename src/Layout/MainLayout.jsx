@@ -6,7 +6,7 @@ import Footer from "../Shared Component/Footer";
 const MainLayout = () => {
     return (
         <>
-            <div className="max-w-screen-xl mx-auto px-4">
+            <div className="max-w-screen-xl mx-auto px-2">
                 <Header></Header>
             </div>
             <div className="max-w-screen-xl mx-auto my-5">
