@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 
 const ServiceCard = ({ service }) => {
-    let { _id, title, img, price } = service;
+    let {  title, img, price } = service;
 
     return (
         <div>
