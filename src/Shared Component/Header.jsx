@@ -34,7 +34,7 @@ const Header = () => {
                 <div className="navbar-end z-[999] font-semibold flex gap-3">
                     <BsHandbag className="text-xl"></BsHandbag>
                     <AiOutlineSearch className="text-xl"></AiOutlineSearch>
-                    <Link to='/' className="text-red-600 border-red-500 border px-4 py-2 rounded-md">Appointment</Link>
+                    <Link to='/' className="px-4 py-2 rounded hover:bg-red-600 hover:text-white font-semibold border border-red-600 text-red-700">Appointment</Link>
                 </div>
             </div>
         </div>
