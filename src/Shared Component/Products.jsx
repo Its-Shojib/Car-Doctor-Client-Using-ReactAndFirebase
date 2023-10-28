@@ -92,7 +92,7 @@ const Products = () => {
                                 <input type="radio" name="rating-9" className="mask mask-star-2" />
                             </div>
                         </p>
-                        <h2 className="card-title">Cools Led Light</h2>
+                        <h2 className="card-title">Battery Charge</h2>
                         <p className='text-red-600'>$ 20.00</p>
                     </div>
                 </div>
