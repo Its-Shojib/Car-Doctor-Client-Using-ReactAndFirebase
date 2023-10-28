@@ -6,10 +6,11 @@ import { FaEyeSlash, FaEye } from 'react-icons/fa';
 import swal from 'sweetalert';
 import { AuthContext } from "../../AuthProvider/AuthProvier";
 import img from '../../../public/assets/images/login/login.svg'
+import axios from "axios";
 
 const Login = () => {
     let [showPassword, setShowPassword] = useState(false);
-    let { SignInUser, googleSignIn, githubSignIn} = useContext(AuthContext)
+    let { SignInUser, googleSignIn, githubSignIn } = useContext(AuthContext)
     let navigate = useNavigate()
     let location = useLocation();
 
@@ -17,14 +18,22 @@ const Login = () => {
         e.preventDefault();
         let email = e.target.email.value;
         let password = e.target.password.value;
-        console.log(email, password);
 
         SignInUser(email, password)
             .then(result => {
-                console.log(result.user);
-                e.target.reset();
+                let loggedInUser = result.user
+                console.log(loggedInUser);
                 swal("Good job!", "Sign-in Successfuly!", "success");
-                navigate(location.state ? location.state : '/');
+
+                // get access token
+                let user = { email };
+                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                    .then(res =>{
+                        if(res.data.success) {
+                            navigate(location.state ? location.state : '/');
+                        }
+                    }  
+                );
             })
             .catch(error => {
                 swal("Error!", error.message, "error");
@@ -35,7 +44,7 @@ const Login = () => {
             .then(result => {
                 console.log(result.user);
                 swal("Good job!", "Sign-in Successfuly!", "success");
-                navigate('/')
+                navigate(location.state ? location.state : '/');
             })
             .catch(error => {
                 swal("Error!", error.message, "error");
@@ -45,9 +54,11 @@ const Login = () => {
     let handleGithubLogin = () => {
         githubSignIn()
             .then(result => {
-                console.log(result.user);
+                let loggedInUser = result.user
+                console.log(loggedInUser);
                 swal("Good job!", "Sign-in Successfuly!", "success");
-                navigate('/')
+                navigate(location.state ? location.state : '/');
+
             })
             .catch(error => {
                 swal("Error!", error.message, "error");
