@@ -19,7 +19,10 @@ const Header = () => {
         {/* <li><Link to='/blog'>Blog</Link></li> */}
         {/* <li><Link to='/contact'>Contact</Link></li> */}
         {
-            user?  <li><button onClick={handleLogout} className="bg-red-600 text-white py-2 px-2 rounded-md">Logout</button></li> : <li><Link to='/login'>Login</Link></li>
+            user?  <>
+            <li><Link to='/bookings'>My Bookings</Link></li>
+            <li><button onClick={handleLogout} className="bg-red-600 text-white py-2 px-2 rounded-md">Logout</button></li>
+            </> : <li><Link to='/login'>Login</Link></li>
         }
     </>
     return (
