@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvier";
 import BookingRow from "./BookingRow";
 import swal from 'sweetalert';
+import axios from "axios";
 
 const Bookings = () => {
     let { user } = useContext(AuthContext);
@@ -10,9 +11,13 @@ const Bookings = () => {
     let url = `http://localhost:5000/bookings/?email=${user.email}`
 
     useEffect(() => {
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setBookings(data))
+        axios.get(url, { withCredentials: true })
+            .then(res => {
+                setBookings(res.data)
+            })
+        // fetch(url)
+        //     .then(res => res.json())
+        //     .then(data => setBookings(data))
     }, [url])
 
     let handleDelete = id => {
@@ -41,7 +46,6 @@ const Bookings = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.modifiedCount) {
                     let remaining = bookings.filter(booking => booking._id !== id);
                     let updated = bookings.find(booking => booking._id === id);
